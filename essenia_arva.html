@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVA Code Studio</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Segoe UI', monospace;
+            padding: 30px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            border: 1px solid #30363d;
+            text-align: center;
+        }
+        h1 { color: #58a6ff; margin-bottom: 10px; }
+        p.desc { color: #8b949e; margin-bottom: 25px; line-height: 1.6; }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            background: #238636;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s;
+        }
+        .btn:hover { background: #2ea043; transform: translateY(-2px); }
+        .btn-run { background: #1f6beb; margin-top: 15px; }
+        .btn-run:hover { background: #388bfd; }
+
+        /* Stile per la nuova pagina/schermata */
+        .workspace { display: none; text-align: left; }
+        
+        textarea {
+            width: 100%;
+            height: 160px;
+            background: #0d1117;
+            color: #79c0ff;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 1rem;
+            box-sizing: border-box;
+            resize: vertical;
+            margin-top: 10px;
+        }
+
+        .output-box {
+            margin-top: 20px;
+            background: #0d1117;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #58a6ff;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .symbol-base { color: #f2cc60; font-weight: bold; } /* [] Base */
+        .symbol-vibo { color: #ff7b72; font-weight: bold; } /* {} Vibo */
+        .symbol-traccia { color: #d2a8ff; font-weight: bold; } /* () Traccia */
+        .symbol-riga { color: #79c0ff; font-weight: bold; } /* ¬ Passa Riga */
+        .symbol-pagina { color: #ffa657; font-weight: bold; } /* ^ Cambia Pagina */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- PAGINA 1: Benvenuto -->
+    <div id="homePage">
+        <h1>Benvenuto in ARVA Code Studio</h1>
+        <p class="desc">
+            Il sistema definitivo per interpretare il tuo codice.<br>
+            <strong>Regole:</strong> <code>[]</code> = Base | <code>{}</code> = Vibo | <code>()</code> = Tracce | <code>¬</code> = Passa riga | <code>^</code> = Cambia pagina
+        </p>
+        <button class="btn" onclick="cambiaPagina()">Inizia per gratis</button>
+    </div>
+
+    <!-- PAGINA 2: L'Editor ARVA (Nuova schermata) -->
+    <div id="editorPage" class="workspace">
+        <h2 style="color: #58a6ff; margin-top:0;">ARVA Code Workspace</h2>
+        <label for="arvaInput" style="color: #8b949e; font-size: 0.9rem;">Inserisci o modifica il tuo codice .arva:</label>
+        <textarea id="arvaInput">[antivirus] {attiva_scudo_globale} (check_malware) ¬
+[BaseJava] {carica_ambiente_pc} (engine_java) ¬ [BaseTesto] {leggi_editor_stringhe} (notepad)
+[BaseHTML] {carica_ambiente_mobile} (engine_html) ^ [BaseCSS] {imposta_stile_grafico} (mobile_layout) ¬^
+[TagProgetto] {organizza_file} (main.java)</textarea>
+
+        <button class="btn btn-run" onclick="interpretaCodice()">Esegui Codice ARVA</button>
+
+        <div id="output" class="output-box" style="display:none;"></div>
+    </div>
+</div>
+
+<script>
+function cambiaPagina() {
+    // Nasconde la home e mostra la nuova pagina dell'editor
+    document.getElementById('homePage').style.display = 'none';
+    document.getElementById('editorPage').style.display = 'block';
+    // Esegue subito una lettura di esempio
+    interpretaCodice();
+}
+
+function interpretaCodice() {
+    const rawCode = document.getElementById('arvaInput').value;
+    const outputDiv = document.getElementById('output');
+    outputDiv.style.display = 'block';
+
+    let parsed = rawCode
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/\[(.*?)\]/g, '<span class="symbol-base">[$1] (Base)</span>')
+        .replace(/\{(.*?)\}/g, '<span class="symbol-vibo">{$1} (Vibo)</span>')
+        .replace(/\((.*?)\)/g, '<span class="symbol-traccia">($1) (Traccia)</span>')
+        .replace(/¬/g, '<span class="symbol-riga"> ↩ [Passa Riga]</span><br>')
+        .replace(/\^/g, '<span class="symbol-pagina"> 📄 [Cambia Pagina]</span><br>');
+
+    outputDiv.innerHTML = '<strong>Risultato dell\'interpretazione ARVA:</strong><br><br>' + parsed;
+}
+</script>
+
+</body>
+</html>

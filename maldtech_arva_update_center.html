@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MALDTECH — ARVA Downloads</title>
+  <link rel="icon" type="image/x-icon" href="ARVA.ico">
+  <style>
+    :root { color-scheme: dark; --bg:#080b0a; --panel:#111815; --line:#29352e; --green:#27ff00; --muted:#a8b5ac; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(ellipse at top,#142019 0,#080b0a 58%); color:#f4fff6; font:16px/1.55 system-ui,Segoe UI,Arial,sans-serif; }
+    header { padding:24px 6vw; border-bottom:1px solid var(--line); display:flex; gap:14px; align-items:center; }
+    .mark { width:42px;height:42px;display:grid;place-items:center;background:var(--green);color:#061006;font-size:27px;font-weight:900;clip-path:polygon(0 0,100% 38%,100% 66%,0 100%,0 72%,68% 52%,0 28%); }
+    .brand { font-weight:900; letter-spacing:.12em; } .subbrand { color:var(--muted);font-size:.78rem; }
+    main { width:min(940px,90vw);margin:42px auto 70px; }
+    .eyebrow { color:var(--green);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:800; }
+    h1 { font-size:clamp(2rem,6vw,3.7rem);line-height:1.05;margin:.45rem 0 1rem; }
+    h2 { margin-top:0; } p { color:#d5e0d8; }
+    .panel { background:rgba(17,24,21,.94);border:1px solid var(--line);border-radius:18px;padding:24px;margin:20px 0; }
+    .grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px; }
+    .os { background:#0b100d;border:1px solid #344238;border-radius:13px;padding:16px;display:flex;gap:12px;align-items:flex-start; }
+    .os input { accent-color:var(--green);margin-top:5px; }
+    .os strong { display:block; } .os small { color:var(--muted);display:block;margin-top:4px; }
+    button { background:var(--green);color:#061006;font-weight:850;border:0;border-radius:10px;padding:13px 18px;cursor:pointer; }
+    button:focus-visible,input:focus-visible { outline:3px solid #fff;outline-offset:3px; }
+    button.secondary { background:#202b24;color:#f4fff6;border:1px solid #3b4b40; }
+    .actions { display:flex;flex-wrap:wrap;gap:10px;margin-top:16px; }
+    .status { margin-top:15px;padding:14px;border-radius:10px;background:#0a100c;border:1px solid #3b4b40;white-space:pre-wrap; }
+    .status.good { border-color:#27ff00; } .status.bad { border-color:#ff8a8a;color:#ffdada; }
+    .terms { max-height:220px;overflow:auto;background:#0a100c;border:1px solid var(--line);border-radius:10px;padding:15px; }
+    .accept { display:flex;align-items:flex-start;gap:10px;margin-top:16px; } .accept input { accent-color:var(--green);margin-top:6px; }
+    .muted { color:var(--muted);font-size:.9rem; }
+    .release { border-left:3px solid var(--green);padding-left:14px;margin:16px 0; }
+    footer { border-top:1px solid var(--line);padding:22px 6vw;color:var(--muted);font-size:.85rem; }
+    a { color:var(--green); }
+  </style>
+</head>
+<body>
+<header>
+  <div class="mark" aria-hidden="true"></div>
+  <div><div class="brand">MALDTECH</div><div class="subbrand">MALDENA CODE TECHNOLOGY</div></div>
+</header>
+<main>
+  <div class="eyebrow">ARVA • Official downloads concept</div>
+  <h1>ARVA Update Center</h1>
+  <p>Choose the package that matches your operating system. This demo checks compatibility in your browser; it does not install software or change your PC.</p>
+
+  <section class="panel" aria-labelledby="news-title">
+    <h2 id="news-title">What's new</h2>
+    <div class="release"><strong>ARVA Update Center preview</strong><p>One place to view release notes and choose an operating-system package.</p></div>
+    <div class="release"><strong>64-bit compatibility notice</strong><p>Packages are intended for 64-bit systems. A 32-bit system should not use a 64-bit installer.</p></div>
+    <div class="release"><strong>Safer setup flow</strong><p>Review the terms and check your OS before continuing. No automatic downloads or installations happen in this demo.</p></div>
+    <p class="muted">These are sample release notes for the website prototype, not a claim that a real update has been released.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="download-title">
+    <h2 id="download-title">Choose your operating system</h2>
+    <p>Select the OS package you want to check. The browser can identify some systems, but it cannot reliably verify every OS or CPU architecture.</p>
+    <div class="grid">
+      <label class="os"><input type="radio" name="os" value="windows"><span><strong>Windows 64-bit</strong><small>For supported 64-bit Windows PCs</small></span></label>
+      <label class="os"><input type="radio" name="os" value="linux"><span><strong>Linux 64-bit</strong><small>For supported 64-bit Linux systems</small></span></label>
+      <label class="os"><input type="radio" name="os" value="macos"><span><strong>macOS 64-bit</strong><small>Compatibility depends on Mac hardware and OS version</small></span></label>
+      <label class="os"><input type="radio" name="os" value="maldena"><span><strong>Maldena OS 64-bit</strong><small>Fictional/custom OS option — select only if your own Maldena OS supports it</small></span></label>
+    </div>
+    <div class="actions">
+      <button id="checkBtn" type="button">Check compatibility</button>
+      <button id="resetBtn" class="secondary" type="button">Reset</button>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite">Choose an OS, then select “Check compatibility”.</div>
+    <p class="muted">Important: this prototype does not provide real installer files. Add verified, signed installer links only when your packages are ready.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="terms-title">
+    <h2 id="terms-title">Terms of Service</h2>
+    <div class="terms">
+      <p><strong>1. Prototype status.</strong> This page is a demonstration for the ARVA/MALDTECH project. It does not itself provide or install software.</p>
+      <p><strong>2. Compatibility.</strong> You are responsible for choosing a package that matches your operating system, device architecture, and system requirements. “64-bit” alone does not guarantee compatibility.</p>
+      <p><strong>3. Safe downloads.</strong> Only download software from a source you trust. Check the publisher and digital signature when available, and scan downloaded files with reputable security software. A “safe download” label is not a guarantee.</p>
+      <p><strong>4. No automatic changes.</strong> This prototype does not scan, delete, repair, or change files, settings, or the operating system on your computer.</p>
+      <p><strong>5. Availability and updates.</strong> Version information and release notes on this demo are examples and may not describe an actual release.</p>
+      <p><strong>6. Use at your own discretion.</strong> The project is provided as-is for demonstration. Before publishing real terms for a real product, have them reviewed for the laws that apply to you.</p>
+    </div>
+    <label class="accept"><input id="acceptTerms" type="checkbox"><span>I have read and accept these demo Terms of Service.</span></label>
+    <div class="actions"><button id="continueBtn" type="button">Continue</button></div>
+    <div id="termsStatus" class="status" role="status" aria-live="polite">Accept the terms to continue to the compatibility check.</div>
+  </section>
+</main>
+<footer>© MALDTECH — Maldena Code Technology • ARVA Update Center prototype</footer>
+<script>
+  const statusBox = document.getElementById('status');
+  const termsStatus = document.getElementById('termsStatus');
+  let accepted = false;
+  function detectOS() {
+    const ua = navigator.userAgent || '';
+    if (/Windows/i.test(ua)) return 'windows';
+    if (/Macintosh|Mac OS X/i.test(ua)) return 'macos';
+    if (/Linux|X11/i.test(ua)) return 'linux';
+    return 'unknown';
+  }
+  function chosenOS() {
+    return document.querySelector('input[name="os"]:checked')?.value || '';
+  }
+  function showCompatibility() {
+    const selected = chosenOS();
+    statusBox.className = 'status';
+    if (!selected) {
+      statusBox.classList.add('bad');
+      statusBox.textContent = 'Please select an operating system first.';
+      return;
+    }
+    const detected = detectOS();
+    if (selected === 'maldena') {
+      statusBox.textContent = 'MANUAL CHECK REQUIRED: Maldena OS is a custom option and cannot be detected by this browser. Continue only if you are actually running your own Maldena OS 64-bit build.';
+      return;
+    }
+    if (detected === 'unknown' || selected !== detected) {
+      statusBox.classList.add('bad');
+      statusBox.textContent = 'WRONG OS: This package choice does not match the operating system detected by your browser. Choose the package for your actual OS. No download or installation was started.';
+      return;
+    }
+    statusBox.classList.add('good');
+    statusBox.textContent = 'OS family match: ' + selected.toUpperCase() + '. Your browser cannot reliably confirm 64-bit architecture or all system requirements, so verify those before using a real installer. No download or installation was started.';
+  }
+  document.getElementById('checkBtn').addEventListener('click', () => {
+    if (!accepted) {
+      termsStatus.className = 'status bad';
+      termsStatus.textContent = 'Please read and accept the demo Terms of Service first.';
+      return;
+    }
+    showCompatibility();
+  });
+  document.getElementById('continueBtn').addEventListener('click', () => {
+    accepted = document.getElementById('acceptTerms').checked;
+    if (!accepted) {
+      termsStatus.className = 'status bad';
+      termsStatus.textContent = 'You must accept the demo terms before continuing.';
+      return;
+    }
+    termsStatus.className = 'status good';
+    termsStatus.textContent = 'Terms accepted for this page session. Now choose an OS and check compatibility.';
+  });
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    document.querySelectorAll('input[name="os"]').forEach(el => el.checked = false);
+    statusBox.className = 'status';
+    statusBox.textContent = 'Choose an OS, then select “Check compatibility”.';
+  });
+</script>
+</body>
+</html>

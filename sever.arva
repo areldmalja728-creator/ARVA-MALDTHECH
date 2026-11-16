@@ -1,0 +1,28 @@
+(vidspase) {sever ....arva 
+{
+    // 🛡️ SEZIONE 1: ANTIVIRUS & GLOBAL SECURITY LOG
+    [antivirus] { attiva_scudo_globale } (check_malware) ¬
+    [sicurezza] { blocca_sistema_anti_fn } (emergency_stop) ^
+
+    // 🖥️ SEZIONE 2: NUOVO BASE CODE MENU (Schermata di avvio)
+    // Cursore su PC (Colonna 1 e Colonna 2 divisi da ¬)
+    [BaseJava] { carica_ambiente_pc } (engine_java) ¬ [BaseTesto] { leggi_editor_stringhe } (notepad)
+    
+    // Cursore su Telefono (Pagina 1 e Pagina 2 divisi da ^)
+    [BaseHTML] { carica_ambiente_mobile } (engine_html) ^ [BaseCSS] { imposta_stile_grafico } (mobile_layout) ¬^
+
+    // 🏷️ SEZIONE 3: CORE FILE TAGGING SYSTEM
+    // Associa i file e i tag usando la sintassi completa [{}]()¬^
+    [TagProgetto]  { organizza_file } (main.java) ¬
+    [TagSitoWeb]   { organizza_file } (index.html) ^
+    [TagLinguaggio]{ definisci_logo } (logo_blu_¬) ¬^
+
+    // ⚠️ SEZIONE 4: CONTROLLO ATTIVAZIONE TASTO CRASH "fn"
+    // Se l'utente tocca fn, lo scudo antivirus fallisce, cancella tutto e lancia il blocco
+    // [fn] -> reset_totale_codice -> suono_allarme: "FAHHH!!!"
+
+    //Abutton(button).txtprint(run)
+    //-says-pop.out-printtite(the sever arva says) v v .printxtpopout(you pressed the button)
+}
+}
+

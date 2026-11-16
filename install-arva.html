@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVA 3.1 - Official Web Installer</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .terminal {
+            border: 1px solid #333;
+            background-color: #000000;
+            padding: 25px;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.15);
+            line-height: 1.5;
+        }
+        h1 { color: #00ff00; font-size: 22px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #4fc1ff; font-size: 18px; margin-top: 20px; }
+        .comment { color: #6a9955; }
+        .bracket { color: #ffd700; }
+        .tag { color: #4fc1ff; font-weight: bold; }
+        .function { color: #dcdcaa; }
+        .variable { color: #9cdcfe; }
+        .status { color: #4ec9b0; }
+        
+        .section-box {
+            background-color: #111;
+            border-left: 3px solid #00ff00;
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        /* Bottone Installer */
+        .install-btn {
+            display: inline-block;
+            background-color: #ff9900;
+            color: #000000;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .install-btn:hover { background-color: #e08800; }
+
+        /* Barra di ricerca Google */
+        .search-container {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed #333;
+        }
+        .search-box { display: flex; gap: 10px; margin-top: 10px; }
+        .search-input {
+            flex: 1;
+            background-color: #222;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 4px;
+            outline: none;
+        }
+        .search-button {
+            background-color: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal">
+    <h1># ARVA 3.1 - Coding System & Installer</h1>
+    <p class="comment">Maltech Logo System (malthech) — ULTIMO VERSION</p>
+
+    <!-- I tuoi comandi di inizializzazione -->
+    <div class="section-box">
+        <p class="comment">// ARVA INITIALIZATION PROTOCOL</p>
+        <p class="bracket">{</p>
+        <p style="padding-left: 20px; margin: 5px 0;">
+            <span class="tag">[antivirus]</span> <span class="bracket">{</span> <span class="function">attiva_scudo_globale</span> <span class="bracket">}</span> (<span class="variable">check_malware</span>) ¬<br>
+            <span class="tag">[BaseHTML]</span> <span class="bracket">{</span> <span class="function">carica_ambiente_mobile</span> <span class="bracket">}</span> (<span class="variable">engine_html</span>) ^
+        </p>
+        <p class="bracket">}</p>
+    </div>
+
+    <p>🛡️ <strong>Sezione 1: Security Log</strong></p>
+    <p>Scudo Globale: <span class="status">🟢 ATTIVO</span></p>
+    <p>Antivirus: CHECKING... [antivirus] { attiva_scudo_globale }</p>
+
+    <p>🖥️ <strong>Sezione 2: Base Code Menu</strong></p>
+    <p>[BaseJava] { carica_ambiente_pc } (engine_java) ¬</p>
+    <p>[BaseHTML] { carica_ambiente_mobile } (engine_html) ^</p>
+
+    <hr style="border-color: #333;">
+
+    <h2>What is an ARVA file?</h2>
+    <p>An <strong>ARVA file</strong> is a file format used in a high-level programming system that was created by <strong>Areld</strong>. The ARVA file system acts as a core code engine to organize software projects, configure security logs, and manage development environments.</p>
+
+    <h2>Can you use the web to install ARVA?</h2>
+    <p>Yes, you can use the web to download and install the latest <strong>ARVA 3.1 Installer</strong> directly from this official server distribution page. Click the button below to initialize the system and launch the secure environment setup.</p>
+
+    <!-- Bottone di installazione finto -->
+    <button class="install-btn" onclick="alert('Inizializzazione ambiente sicuro ARVA... (Simulazione)')">🚀 Download & Install ARVA</button>
+    
+    <p style="margin-top: 15px; font-size: 13px;" class="comment">thx for selet maltech to install arva make code and try to running good luck</p>
+
+    <!-- Modulo di ricerca Google richiesto -->
+    <div class="search-container">
+        <p class="comment">// INSERIRE STRIGA DI RICERCA WEB ENGINE GOOGLE:</p>
+        <form action="https://google.com" method="get" target="_blank" class="search-box">
+            <input type="text" name="q" class="search-input" placeholder="root@arva:~# cerca su internet..." required>
+            <button type="submit" class="search-button">CERCA</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

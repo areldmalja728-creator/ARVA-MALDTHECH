@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARVA Studio - Run & Code</title>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        h1 {
+            color: #38bdf8;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .editor-box {
+            background: #030712;
+            border: 1px solid #374151;
+            border-radius: 6px;
+            padding: 15px;
+        }
+        textarea {
+            width: 100%;
+            height: 180px;
+            background: transparent;
+            color: #34d399;
+            border: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            resize: vertical;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .run-btn {
+            display: block;
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+        .run-btn:hover {
+            background: #1d4ed8;
+        }
+        .console-output {
+            margin-top: 20px;
+            background: #030712;
+            border: 1px solid #374151;
+            border-radius: 6px;
+            padding: 15px;
+            min-height: 100px;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        .sym-base { color: #facc15; font-weight: bold; } /* [] */
+        .sym-vibo { color: #f43f5e; font-weight: bold; } /* {} */
+        .sym-traccia { color: #c084fc; font-weight: bold; } /* () */
+        .sym-riga { color: #38bdf8; font-weight: bold; } /* ¬ */
+        .sym-pagina { color: #fb923c; font-weight: bold; } /* ^ */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ARVA STUDIO</h1>
+    <div class="subtitle">[] Base | {} Vibo | () Tracce | ¬ Passa riga | ^ Cambia pagina</div>
+
+    <div class="editor-box">
+        <textarea id="arvaCode">(vidspase) {sever ....arva 
+{
+    // 🛡️ SEZIONE 1: ANTIVIRUS & GLOBAL SECURITY LOG
+    [antivirus] { attiva_scudo_globale } (check_malware) ¬
+    [sicurezza] { blocca_sistema_anti_fn } (emergency_stop) ^
+
+    // 🖥️ SEZIONE 2: NUOVO BASE CODE MENU (Schermata di avvio)
+    [BaseJava] { carica_ambiente_pc } (engine_java) ¬ [BaseTesto] { leggi_editor_stringhe } (notepad)
+    [BaseHTML] { carica_ambiente_mobile } (engine_html) ^ [BaseCSS] { imposta_stile_grafico } (mobile_layout) ¬^
+
+    // 🏷️ SEZIONE 3: CORE FILE TAGGING SYSTEM
+    [TagProgetto]  { organizza_file } (main.java) ¬
+    [TagSitoWeb]   { organizza_file } (index.html) ^
+    [TagLinguaggio]{ definisci_logo } (logo_blu_¬) ¬^
+
+    // ⚠️ SEZIONE 4: CONTROLLO ATTIVAZIONE TASTO CRASH "fn"
+}
+}</textarea>
+    </div>
+
+    <button class="run-btn" onclick="eseguiArva()">▶ RUN ARVA CODE</button>
+
+    <div class="console-output" id="consoleOutput">
+        <span style="color: #6b7280;">// La console è pronta. Premi "RUN ARVA CODE" per avviare.</span>
+    </div>
+</div>
+
+<script>
+function eseguiArva() {
+    const code = document.getElementById('arvaCode').value;
+    const output = document.getElementById('consoleOutput');
+    
+    // Traduzione visiva dei simboli secondo le regole ARVA
+    let parsedCode = code
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/\[(.*?)\]/g, '<span class="sym-base">[$1]</span>')
+        .replace(/\{(.*?)\}/g, '<span class="sym-vibo">{$1}</span>')
+        .replace(/\((.*?)\)/g, '<span class="sym-traccia">($1)</span>')
+        .replace(/¬/g, '<span class="sym-riga"> ¬ [PASSA RIGA]</span><br>')
+        .replace(/\^/g, '<span class="sym-pagina"> ^ [CAMBIA PAGINA]</span><br>');
+
+    output.innerHTML = `<strong>[SYSTEM RUNNING...]</strong><br><br>` + parsedCode;
+}
+</script>
+
+</body>
+</html>
